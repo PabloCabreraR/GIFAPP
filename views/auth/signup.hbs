@@ -1,0 +1,27 @@
+<h1>Create an account</h1>
+
+<form action="/signup" method="POST">
+    <div>
+        <label for="username">Username: </label>
+        <input type="text" name="username">
+    </div>
+    <div>
+        <label for="email">Email: </label>
+        <input type="email" name="email">
+    </div>
+    <div>
+        <label for="age">Age: </label>
+        <input type="number" name="age">
+    </div>
+    <div>
+        <label for="password">Password: </label>
+        <input type="password" name="password">
+    </div>
+
+        <button type="submit">Create</button>
+
+</form>
+
+{{#if errMsg}}
+<p>{{this.errMsg}}</p> 
+{{/if}}

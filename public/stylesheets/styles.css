@@ -76,3 +76,11 @@ html {
     margin-left: 5px;
 }
 
+.errorMsg{
+    margin-top: 3rem;
+    border: solid red 0.1rem;
+    padding: 0.5rem;
+    width: 15rem;
+    text-align: center;
+    align-self: center
+}
