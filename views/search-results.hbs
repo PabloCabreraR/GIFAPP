@@ -1,0 +1,7 @@
+<div class="gifs-div">
+    {{#each gifs}}
+        <div class="spacing">
+            <img src={{this.images.fixed_width_downsampled.url}} alt={{this.url}} />
+        </div>
+    {{/each}}
+</div>

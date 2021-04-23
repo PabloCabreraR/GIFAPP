@@ -1,0 +1,78 @@
+/* 
+102 187 94 verde claro
+82 150 75 verde oscuro
+ */
+html {
+    margin: 0;
+}
+
+
+.navbar {
+    height: 8vh;
+    margin: 0;
+    font-size: 1.4rem;
+    background-color: rgb(82, 150, 75);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+
+}
+
+.searchform {
+    height: 92vh;
+    background-color: rgb(102, 187, 94);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#search-bar {   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#searchbar-input {
+    background-color: rgb(167, 250, 159);
+    height: 50px;
+    width: 80vw;
+    border-radius: 20px;
+    border: 1px solid rgb(32, 58, 29);
+    font-size: 1.4rem;
+
+}
+
+#searchbar-button {
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 1.8rem;
+}
+
+.gifs-div {
+    background-color: rgb(102, 187, 94);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.center {
+    text-align: center;
+    margin: 10px 0px;
+}
+
+.spacing {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
