@@ -1,11 +1,11 @@
-<h1>profile page</h1>
+<h1>Hi {{user.username}}!</h1>
+<img src={{user.profilePic}} alt="{{user.username}} profile pic">
 
-
-
-
-
+<button id="delete-button">Delete account.</button>
 <form action="/delete-account/{{_id}}" method="POST">
-
-    <button type="submit">DELETE ACCOUNT</button>
-
+    <button type="submit" id="delete-account" disabled>Yes, I'm sure I wan't to delete it.</button>
 </form>
+
+
+
+<script src="/javascript/scriptProfile.js"></script>

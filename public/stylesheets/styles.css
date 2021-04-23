@@ -84,3 +84,15 @@ html {
     text-align: center;
     align-self: center
 }
+
+.accordion {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+
+.panel {
+    display: none;
+    overflow: hidden;
+}

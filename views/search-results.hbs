@@ -1,7 +1,17 @@
 <div class="gifs-div">
     {{#each gifs}}
         <div class="spacing">
-            <img src={{this.images.fixed_width_downsampled.url}} alt={{this.url}} />
+
+            <img src={{this.images.fixed_width_downsampled.url}} alt={{this.url}} class="accordion" id={{this.id}}/>
+            
+            <form action="/fav-gif/" method="POST" class="panel">
+                <button type="submit">Add to my favorites</button>
+            </form>
+
         </div>
     {{/each}}
 </div>
+
+
+
+<script src="/javascript/scriptGifs.js"></script>
