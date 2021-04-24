@@ -44,7 +44,6 @@ router.post('/add-gif', checkForAuth, (req, res)=>{
             .then(created => {
               User.findByIdAndUpdate(req.user._id, {$push: {favGifs: created._id}})
                 .then(saved => {
-                  console.log('Gif created and saved in the users array')
                   return
                 })
             })
@@ -53,12 +52,10 @@ router.post('/add-gif', checkForAuth, (req, res)=>{
             User.findById(req.user._id)
                 .then(result => {
                   if(result.favGifs.includes(exists._id)){
-                    console.log('You already have this one')
-                    return
+                    return 
                   }else{
                     User.findByIdAndUpdate(req.user._id, {$push: {favGifs: exists._id}})
                       .then(saved => {
-                        console.log('Gif saved in the users array')
                         return
                       })
                   }
@@ -77,26 +74,18 @@ router.post('/add-gif', checkForAuth, (req, res)=>{
 })
 
 router.post('/remove-gif/:_id', checkForAuth, (req, res) => {
-
-  User.findById(req.user._id)
-    .then((user) => {
-      console.log(user)
-      const newFavGifs = user.favGifs.filter((gif)=>{
-        return gif._id !== req.params._id
-      })
-      User.findByIdAndUpdate(user._id, {favGifs: newFavGifs})
-        .then((ress)=>{
-          res.redirect('/profile')
-          console.log(ress)
-        })
-    }).catch(error => {
+  User.findByIdAndUpdate(req.user._id, {$pull: {favGifs: req.params._id}})
+    .then(() => {
+      res.redirect('/profile')
+    })
+    .catch(error => {
       console.log(error)
     })
 })
 
 router.post('/delete-account/', checkForAuth, (req, res)=>{
     User.findByIdAndDelete(req.user._id)
-    .then(result=>{
+    .then(() => {
         res.redirect('/')
     })
     .catch(error=>{
