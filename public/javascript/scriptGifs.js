@@ -1,7 +1,5 @@
 const acc = document.querySelectorAll(".accordion")
 
-// const images = [...acc]
-
 acc.forEach(image=>{
     image.addEventListener("click", function(){
         this.classList.toggle("active");

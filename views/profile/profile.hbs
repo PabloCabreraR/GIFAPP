@@ -1,11 +1,23 @@
 <h1>Hi {{user.username}}!</h1>
-<img src={{user.profilePic}} alt="{{user.username}} profile pic">
-
+<p>Age: {{user.age}}</p>
+<img src={{user.profilePic}} alt="{{user.username}} profile pic" />
 <button id="delete-button">Delete account.</button>
-<form action="/delete-account/{{_id}}" method="POST">
+<form action="/delete-account/" method="POST">
     <button type="submit" id="delete-account" disabled>Yes, I'm sure I wan't to delete it.</button>
 </form>
 
+<h2>Favorites:</h2>
+{{#if fav}}
+    {{#each user.favGifs}}
+        <img src={{this.original_url}} alt={{this.title}} class="accordion"/>
+        <form action="/remove-gif/{{this._id}}" method="POST" class="panel">
+            <button type="submit">Remove from favorites</button>
+        </form>
+    {{/each}}
+{{else}}
+    <p>You don't have any favorites yet! Go ahead and add one!</p>
+    <a href="/">Go search for gifs!</a>
+{{/if}}
 
 
 <script src="/javascript/scriptProfile.js"></script>

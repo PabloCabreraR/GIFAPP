@@ -90,9 +90,11 @@ html {
     border: none;
     outline: none;
     transition: 0.4s;
+    width: 95vw;
 }
 
 .panel {
     display: none;
     overflow: hidden;
+    text-align: center;
 }

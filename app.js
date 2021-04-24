@@ -56,8 +56,8 @@ passport.use(new LocalStrategy({
 }, (req, email, password, next )=>{
   User.findOne({email})
   .then((user) => {
-    if(!user){ //Si el ususario no existe 
-      return next(null, false, {message: 'Incorrect Username'});
+    if(!user){ 
+      return next(null, false, {message: 'Incorrect Email'});
     }
 
     if(!bcrypt.compareSync(password, user.password)){
@@ -87,9 +87,9 @@ app.use(express.static(__dirname + '/public'));
 // ------ ROUTES ----- //
 
 app.use('/', require('./routes/home.routes'))
-app.use ('/', require('./routes/auth.routes'))
-app.use ('/', require('./routes/profile.routes'))
-
+app.use('/', require('./routes/auth.routes'))
+app.use('/', require('./routes/profile.routes'))
+app.use('/', require('./routes/search.routes'))
 
 // ---------SERVER LISTEN -------//
 app.listen(3000, ()=>{

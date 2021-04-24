@@ -17,7 +17,7 @@ router.post('/signup', (req, res) =>{
 
     if (email === '' || password === '' || username === '' || age === ''){
         const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
-        res.render('auth/signup', {errMsg: 'Please fill every field.', layout: layout})
+        res.render('auth/signup', {errMsg: 'All fields are mandatory.', layout: layout})
         return
     }else if(!validator.validate(email)){
         const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'

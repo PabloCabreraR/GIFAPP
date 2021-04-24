@@ -10,7 +10,7 @@ const userSchema = new Schema({
     email: {type: String, required: true, unique: true},
     password: {type: String, required: true, minlength: 8},
     profilePic: {type: String, default: "https://miro.medium.com/max/720/1*W35QUSvGpcLuxPo3SRTH4w.png"},
-    favGifs: [String],
+    favGifs: [{type: Schema.Types.ObjectId, ref: 'Gif'}],
     ownGifs: [Object]
 }, {
     versionKey: false

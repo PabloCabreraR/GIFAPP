@@ -2,9 +2,13 @@
     {{#each gifs}}
         <div class="spacing">
 
-            <img src={{this.images.fixed_width_downsampled.url}} alt={{this.url}} class="accordion" id={{this.id}}/>
+            <img src={{this.images.original.url}} alt={{this.url}} class="accordion"/>
             
-            <form action="/fav-gif/" method="POST" class="panel">
+            <form action="/add-gif/" method="POST" class="panel">
+                <input type="text" name="title" value={{this.title}} style="display: none">
+                <input type="text" name="original_url" value={{this.images.original.url}} style="display: none">
+                <input type="text" name="fixed_width_url" value={{this.images.fixed_width_downsampled.url}} style="display: none">
+                <input type="text" name="rating" value={{this.rating}} style="display: none">         
                 <button type="submit">Add to my favorites</button>
             </form>
 
