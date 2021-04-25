@@ -2,23 +2,28 @@
 <p>Age: {{user.age}}</p>
 <p>Email: {{user.email}}</p>
 {{!-- <img src={{user.profilePic}} alt="{{user.username}} profile pic" /> --}}
-<button id="delete-button">Delete account.</button>
-<form action="/delete-account/" method="POST">
-    <button type="submit" id="delete-account" disabled>Yes, I'm sure I wan't to delete it.</button>
-</form>
-<button id="edit-button">Edit profile</button>
-<form action="/edit-user" method="POST" id="edit-form" class="displaynone">
-    <label for="username">Username/New username: </label>
-    <input type="text" name="username" value={{user.username}}>
-    <br>
-    <label for="password">Password/New password: </label>
-    <input type="password" name="password">
-    <br>
-    <label for="age">Age/New age: </label>
-    <input type="number" name="age" value={{user.age}}>
-    <br>
-    <button type="submit" id="edit-button">Update changes</button>
-</form>
+<div>
+    <button id="edit-button">Edit profile</button>
+    <form action="/edit-user" method="POST" id="edit-form" class="displaynone">
+        <label for="username">Username/New username: </label>
+        <input type="text" name="username" value={{user.username}}>
+        <br>
+        <label for="password">Password/New password: </label>
+        <input type="password" name="password">
+        <br>
+        <label for="age">Age/New age: </label>
+        <input type="number" name="age" value={{user.age}}>
+        <br>
+        <button type="submit" id="edit-button">Update changes</button>
+    </form> 
+</div>
+<div>
+    <button id="delete-button">Delete account.</button>
+    <form action="/delete-account/" method="POST" id="delete-account" class="displaynone">
+        <button type="submit">Yes, I'm sure I wan't to delete it.</button>
+    </form>   
+</div>
+
 
 <h2>Favorites:</h2>
 {{#if fav}}
@@ -41,6 +46,10 @@
 
                 <a href="https://www.linkedin.com/shareArticle?mini=true&url={{this.original_url}}&t={{this.title}}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Linkedin">
                     <img src="/images/SNlogos/linkedin.png" alt="Linkedin logo" class="logo">
+                </a>
+
+                <a href={{this.original_url}} onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share">
+                    <img src="/images/SNlogos/share-violet.png" alt="Share logo" class="logo">
                 </a>
 
             </div>
