@@ -3,13 +3,36 @@
         <div class="spacing">
 
             <img src={{this.images.original.url}} alt={{this.url}} class="accordion"/>
-            
+
             <form action="/add-gif/" method="POST" class="panel">
-                <input type="text" name="title" value={{this.title}} style="display: none">
-                <input type="text" name="original_url" value={{this.images.original.url}} style="display: none">
-                <input type="text" name="fixed_width_url" value={{this.images.fixed_width_downsampled.url}} style="display: none">
-                <input type="text" name="rating" value={{this.rating}} style="display: none">         
+                <div style="display: none">
+
+                    <input type="text" name="title" value={{this.title}}>
+                    <input type="text" name="original_url" value={{this.images.original.url}}>
+                    <input type="text" name="fixed_width_url" value={{this.images.fixed_width_downsampled.url}}>
+                    <input type="text" name="rating" value={{this.rating}}>  
+
+                </div>
+
+                <div class='logos'>
+
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{this.original_url}}&t={{this.title}}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Facebook">
+                        <img src="/images/SNlogos/facebook.png" alt="Facebook logo" class="logo">
+                    </a>
+                    <a href="whatsapp://send?text={{this.original_url}}" data-action="share/whatsapp/share" onClick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on whatsapp">
+                        <img src="/images/SNlogos/whatsapp.png" alt="Whatsapp logo" class="logo">
+                    </a>
+                    <a href="https://twitter.com/share?url={{this.original_url}}&text={{this.title}}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Twitter">
+                        <img src="/images/SNlogos/twitter.png" alt="Twitter logo" class="logo">
+                    </a>
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url={{this.original_url}}&t={{this.title}}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Linkedin">
+                        <img src="/images/SNlogos/linkedin.png" alt="Linkedin logo" class="logo">
+                    </a>
+
+                </div>  
+
                 <button type="submit">Add to my favorites</button>
+                
             </form>
 
         </div>

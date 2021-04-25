@@ -1,9 +1,9 @@
-const acc = document.querySelectorAll(".accordion")
+const accordion = document.querySelectorAll(".accordion")
 
-acc.forEach(image=>{
-    image.addEventListener("click", function(){
-        this.classList.toggle("active");
-        let panel = this.nextElementSibling;
+accordion.forEach(image=>{
+    image.addEventListener("click", () => {
+        image.classList.toggle("active");
+        let panel = image.nextElementSibling;
         if (panel.style.display === "block") {
             panel.style.display = "none";
         } else {

@@ -10,19 +10,23 @@ deleteButton.addEventListener("click", ()=>{
 })
 
 
+const accordion = document.querySelectorAll(".accordion")
 
-
-
-const acc = document.querySelectorAll(".accordion")
-
-acc.forEach(image=>{
-    image.addEventListener("click", function(){
-        this.classList.toggle("active");
-        let panel = this.nextElementSibling;
+accordion.forEach(image=>{
+    image.addEventListener("click", () => {
+        image.classList.toggle("active");
+        let panel = image.nextElementSibling;
         if (panel.style.display === "block") {
             panel.style.display = "none";
         } else {
             panel.style.display = "block";
         }
         })
+})
+
+const editButton = document.querySelector('#edit-button')
+const editForm = document.querySelector('#edit-form')
+
+editButton.addEventListener("click", () => {
+    editForm.classList.toggle('displaynone')
 })

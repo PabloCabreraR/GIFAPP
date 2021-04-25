@@ -21,7 +21,6 @@ html {
 .navbar a {
     text-decoration: none;
     color: white;
-
 }
 
 .searchform {
@@ -59,7 +58,8 @@ html {
 }
 
 .gifs-div {
-    background-color: rgb(102, 187, 94);
+    /* background-color: rgb(102, 187, 94); */
+    background-color: white;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -97,4 +97,18 @@ html {
     display: none;
     overflow: hidden;
     text-align: center;
+}
+
+.logos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.logo {
+    height: 50px;
+}
+
+.displaynone {
+    display: none;
 }
