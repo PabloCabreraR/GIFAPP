@@ -25,16 +25,17 @@ router.post('/results/:page', (req, res)=>{
         }
         axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.API_KEY}&q=${req.body.search}&limit=20&offset=${page}&rating=${rating}&lang=en`)
         .then(result => {
+            console.log(page)
             const layout = '/layouts/auth'
             res.status(200).render('search-results', {
                 gifs: result.data.data, 
                 layout: layout, 
                 body: req.body.search, 
+                firstPage: page === 0 ? true : false,
                 page: page, 
                 nextPage: Number(page)+20, 
                 prevPage: Number(page)-20,
-                firstPage: page === 0 ? false : true,
-                lastPage: page === 160 ? false : true,
+
             })
         })
         .catch(error => {
@@ -48,11 +49,10 @@ router.post('/results/:page', (req, res)=>{
                 gifs: result.data.data, 
                 layout: layout, 
                 body: req.body.search, 
+                firstPage: page == 0,
                 page: page, 
                 nextPage: Number(page)+20, 
                 prevPage: Number(page)-20,
-                firstPage: page === 0 ? true : false,
-                lastPage: page === 160 ? true : false,
             })
         })
         .catch(error => {
