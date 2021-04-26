@@ -1,0 +1,20 @@
+<h2>Edit profile</h2>
+
+
+<form action="/edit-user" method="POST" id="edit-form" class="displaynone">
+
+    <label for="username">Username/New username: </label>
+    <input type="text" name="username" value={{user.username}}>
+
+    <br>
+    <label for="password">Password/New password: </label>
+    <input type="password" name="password">
+
+    <br>
+    <label for="age">Age/New age: </label>
+    <input type="number" name="age" value={{user.age}}>
+
+    <br>
+    <button type="submit" id="edit-button">Update changes</button>
+
+</form> 

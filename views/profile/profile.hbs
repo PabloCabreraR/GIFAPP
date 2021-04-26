@@ -4,18 +4,6 @@
 {{!-- <img src={{user.profilePic}} alt="{{user.username}} profile pic" /> --}}
 <div>
     <button id="edit-button">Edit profile</button>
-    <form action="/edit-user" method="POST" id="edit-form" class="displaynone">
-        <label for="username">Username/New username: </label>
-        <input type="text" name="username" value={{user.username}}>
-        <br>
-        <label for="password">Password/New password: </label>
-        <input type="password" name="password">
-        <br>
-        <label for="age">Age/New age: </label>
-        <input type="number" name="age" value={{user.age}}>
-        <br>
-        <button type="submit" id="edit-button">Update changes</button>
-    </form> 
 </div>
 <div>
     <button id="delete-button">Delete account.</button>
@@ -36,7 +24,7 @@
                     <img src="/images/SNlogos/facebook.png" alt="Facebook logo" class="logo">
                 </a>
 
-                <a href="whatsapp://send?text={{this.original_url}}" data-action="share/whatsapp/share" onClick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on whatsapp">
+                <a href="whatsapp://send?url={{this.original_url}}" data-action="share/whatsapp/share" onClick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on whatsapp">
                     <img src="/images/SNlogos/whatsapp.png" alt="Whatsapp logo" class="logo">
                 </a>
 
@@ -53,7 +41,7 @@
                 </a>
 
             </div>
-            <button type="submit">Remove from favorites</button>
+            <button type="submit" class="favbutton">Remove from favorites</button>
 
         </form> 
     {{/each}}

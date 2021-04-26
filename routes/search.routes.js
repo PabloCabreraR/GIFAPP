@@ -6,6 +6,7 @@ let rating;
 
 // ------------SEARCH RESULTS PAGE---------- //
 router.post('/results', (req, res)=> {
+    if (req.body.search === '') res.redirect('/')
     if (req.user){
         const {age} = req.user
         if (age >= 13 && age < 18){
