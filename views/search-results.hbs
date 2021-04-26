@@ -13,13 +13,13 @@
                     <input type="text" name="rating" value={{this.rating}}>  
 
                 </div>
-nopm
+
                 <div class='logos'>
 
                     <a href="https://www.facebook.com/sharer/sharer.php?u={{this.images.original.url}}&t={{this.title}}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Facebook">
                         <img src="/images/SNlogos/facebook.png" alt="Facebook logo" class="logo">
                     </a>
-                    <a href="whatsapp://send?{{this.images.original.url}}" data-action="share/whatsapp/share" onClick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on whatsapp">
+                    <a href="whatsapp://send?text={{this.images.original.url}}" data-action="share/whatsapp/share" onClick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on whatsapp">
                         <img src="/images/SNlogos/whatsapp.png" alt="Whatsapp logo" class="logo">
                     </a>
                     <a href="https://twitter.com/share?url={{this.images.original.url}}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Twitter">
@@ -34,8 +34,9 @@ nopm
 
                 </div>  
 
-                <button type="submit" class="favbutton">Add to my favorites</button>
+                <button type="submit" class="smbutton">Add to my favorites</button>
                 <hr>
+                
             </form>
 
         </div>
@@ -44,4 +45,4 @@ nopm
 
 
 
-<script src="/javascript/scriptGifs.js"></script>
+<script src="/javascript/script.js"></script>

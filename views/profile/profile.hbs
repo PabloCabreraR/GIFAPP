@@ -3,12 +3,13 @@
 <p>Email: {{user.email}}</p>
 {{!-- <img src={{user.profilePic}} alt="{{user.username}} profile pic" /> --}}
 <div>
-    <button id="edit-button">Edit profile</button>
+    <form action="/edit-user" method="GET">
+        <button type="submit">Edit profile</button>
+    </form>
 </div>
 <div>
-    <button id="delete-button">Delete account.</button>
-    <form action="/delete-account/" method="POST" id="delete-account" class="displaynone">
-        <button type="submit">Yes, I'm sure I wan't to delete it.</button>
+    <form action="/delete-account" method="GET">
+        <button type="submit">Delete account</button>
     </form>   
 </div>
 
@@ -41,8 +42,9 @@
                 </a>
 
             </div>
-            <button type="submit" class="favbutton">Remove from favorites</button>
-
+            <button type="submit" class="smbutton">Remove from favorites</button>
+            <hr>
+            
         </form> 
     {{/each}}
 {{else}}
@@ -51,4 +53,4 @@
 {{/if}}
 
 
-<script src="/javascript/scriptProfile.js"></script>
+<script src="/javascript/script.js"></script>
