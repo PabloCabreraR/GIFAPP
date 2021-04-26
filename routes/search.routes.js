@@ -25,18 +25,21 @@ router.post('/results/:page', (req, res)=>{
         }
         axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.API_KEY}&q=${req.body.search}&limit=20&offset=${page}&rating=${rating}&lang=en`)
         .then(result => {
-            console.log(page)
             const layout = '/layouts/auth'
-            res.status(200).render('search-results', {
-                gifs: result.data.data, 
-                layout: layout, 
-                body: req.body.search, 
-                firstPage: page === 0 ? true : false,
-                page: page, 
-                nextPage: Number(page)+20, 
-                prevPage: Number(page)-20,
+            if(result.data.data.length === 0){
+                res.status(404).render('home', {errMsg: 'No results found for your search.', layout: layout})
+            }else{
+                res.status(200).render('search-results', {
+                    gifs: result.data.data, 
+                    layout: layout, 
+                    body: req.body.search, 
+                    firstPage: page == 0,
+                    page: page, 
+                    nextPage: Number(page)+20, 
+                    prevPage: Number(page)-20,
 
-            })
+                })
+            }
         })
         .catch(error => {
             console.log(error)
@@ -45,15 +48,19 @@ router.post('/results/:page', (req, res)=>{
         axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.API_KEY}&q=${req.body.search}&limit=20&offset=${page}&rating=g&lang=en`)
         .then(result => {
             const layout = '/layouts/noAuth'
-            res.status(200).render('search-results', {
-                gifs: result.data.data, 
-                layout: layout, 
-                body: req.body.search, 
-                firstPage: page == 0,
-                page: page, 
-                nextPage: Number(page)+20, 
-                prevPage: Number(page)-20,
-            })
+            if(result.data.data.length === 0){
+                res.status(404).render('home', {errMsg: 'No results found for your search.', layout: layout})
+            }else{
+                res.status(200).render('search-results', {
+                    gifs: result.data.data, 
+                    layout: layout, 
+                    body: req.body.search, 
+                    firstPage: page == 0,
+                    page: page, 
+                    nextPage: Number(page)+20, 
+                    prevPage: Number(page)-20,
+                })
+            }
         })
         .catch(error => {
             console.log(error)

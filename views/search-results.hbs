@@ -34,24 +34,32 @@
 
                 </div>  
 
-                <button type="submit" class="smbutton">Add to my favorites</button>
+                <button type="submit" class="smbutton">Add to favorites</button>
                 <hr>
                 
             </form>
 
         </div>
     {{/each}}
-    {{#unless firstPage}}
-    <form action="/results/{{prevPage}}" method="POST">
-        <input type="text" name="search" value={{body}} style="display: none">
-        <button type="submit">Previous page</button>
-    </form>
-    {{/unless}}
+    <div class="arrows">
+        <div>
+            {{#unless firstPage}}
+            <form action="/results/{{prevPage}}" method="POST">
+                <input type="text" name="search" value={{body}} style="display: none">
+                <button type="submit" class="black"><img src="/images/arrows/Previous-icon.png" alt="Previous page button" class="logo"></button>
+            </form>
+            {{/unless}}        
+        </div>
+        <div>
+            <form action="/results/{{nextPage}}" method="POST">
+                <input type="text" name="search" value={{body}} style="display: none">
+                <button type="submit" class="black"><img src="/images/arrows/Next-icon.png" alt="Next page button" class="logo"></button>
+            </form>        
+        </div>        
+    </div>
 
-    <form action="/results/{{nextPage}}" method="POST">
-        <input type="text" name="search" value={{body}} style="display: none">
-        <button type="submit">Next page</button>
-    </form>
+
+
 
 </div>
 

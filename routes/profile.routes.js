@@ -58,7 +58,6 @@ router.post('/add-gif', checkForAuth, (req, res)=>{
                         return
                       })
                   }
-
                 })
         }
       })

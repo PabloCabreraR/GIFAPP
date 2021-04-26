@@ -1,11 +1,13 @@
 
-<form action="/results/{{page}}" method="POST" id="searchbar">
+<form action="/results/0" method="POST" id="searchbar">
     <div class="searchform">
         <input type="text" name="search" placeholder="Write your search here..." id="searchbar-input">
 
         <button type="submit" id="searchbar-button">Search</button>
         {{!-- <img src="/images/mag-glass.png" alt="magnifying glass"/> --}}
+        {{#if errMsg}}
+            <p style="color: white; margin-top: 20px; font-size: 1.4em;">{{errMsg}}</p>
+        {{/if}}
     </div>
 </form>    
-
 

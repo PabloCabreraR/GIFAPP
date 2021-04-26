@@ -3,6 +3,7 @@ html {
     margin: 0;
     color: white;
     background-color: black;
+    font-family: 'Permanent Marker', cursive;
 }
 
 .body {
@@ -50,7 +51,9 @@ html {
 }
 
 #searchbar-input {
-    background-color: black;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    font-family: 'Permanent Marker', cursive;
     height: 50px;
     width: 80vw;
     border-radius: 20px;
@@ -60,17 +63,19 @@ html {
 }
 
 #searchbar-button {
-    background: gray;
+    background-color: rgb(97, 97, 97);
     margin-top: 20px;
     border: none;
     border: 2px dotted black;
-    border-radius: 5px;
+    border-radius: 10px;
     font-size: 1.8rem;
+    font-weight: bold;
+    font-family: 'Permanent Marker', cursive;
+    padding: 10px 20px;
 }
 
 #searchbar-button:hover {
     background: rgb(90, 90, 90);
-
 }
 
 .gifs-div {
@@ -134,10 +139,27 @@ html {
 
 .smbutton {
     color: white;
-    background: grey;
+    background-color: rgb(54, 54, 54);
     margin-top: 10px;
     border: none;
     border: 3px dotted white;
     border-radius: 5px;
     font-size: 1.2rem;
+}
+
+.black {
+    background-color: black;
+    border: none;
+    border-radius: 100%;
+}
+
+.black:hover{
+    background-color: rgb(80, 80, 80);
+}
+
+.arrows {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
 }
