@@ -86,7 +86,6 @@ app.use(express.static(__dirname + '/public'));
 
 // ------ ROUTES ----- //
 
-app.use('/', require('./routes/home.routes'))
 app.use('/', require('./routes/auth.routes'))
 app.use('/', require('./routes/profile.routes'))
 app.use('/', require('./routes/search.routes'))

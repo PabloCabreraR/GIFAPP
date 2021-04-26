@@ -1,16 +1,25 @@
 
 html {
     margin: 0;
-    /* background: black; */
+    color: white;
+    background-color: black;
+}
+
+.body {
+    height: 90vh;
+    margin-top: 8vh;
+    
 }
 
 .navbar {
     width: 100%;
-    /* position: fixed; */
+    position: fixed;
+    top: 0;
+    left: 0;
     height: 8vh;
     margin: 0;
     font-size: 1.3rem;
-    /* background-color: black; */
+    background-color: black;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -25,8 +34,8 @@ html {
 }
 
 .searchform {
-    height: 92vh;
-    /* background-color: black; */
+    height: 90vh;
+    background-color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -41,7 +50,7 @@ html {
 }
 
 #searchbar-input {
-    /* background-color: black; */
+    background-color: black;
     height: 50px;
     width: 80vw;
     border-radius: 20px;
@@ -54,7 +63,7 @@ html {
     background: gray;
     margin-top: 20px;
     border: none;
-    border: 2px dashed black;
+    border: 2px dotted black;
     border-radius: 5px;
     font-size: 1.8rem;
 }
@@ -65,7 +74,7 @@ html {
 }
 
 .gifs-div {
-    /* background-color:black; */
+    background-color:black;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -87,7 +96,7 @@ html {
     margin-top: 3rem;
     border: solid grey 0.2rem;
     color: white;
-    /* background-color: black; */
+    background-color: black;
     padding: 0.5rem;
     width: 15rem;
     text-align: center;
@@ -106,7 +115,7 @@ html {
     display: none;
     overflow: hidden;
     text-align: center;
-    /* background-color: black; */
+    background-color: black;
 }
 
 .logos {
@@ -128,7 +137,7 @@ html {
     background: grey;
     margin-top: 10px;
     border: none;
-    border: 3px dashed white;
+    border: 3px dotted white;
     border-radius: 5px;
     font-size: 1.2rem;
 }

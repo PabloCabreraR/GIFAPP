@@ -41,6 +41,18 @@
 
         </div>
     {{/each}}
+    {{#if firstPage}}
+    <form action="/results/{{prevPage}}" method="POST">
+        <input type="text" name="search" value={{body}} style="display: none">
+        <button type="submit">Previos page</button>
+    </form>
+    {{/if}}
+    {{#if lastPage}}
+    <form action="/results/{{nextPage}}" method="POST">
+        <input type="text" name="search" value={{body}} style="display: none">
+        <button type="submit">Next page</button>
+    </form>
+    {{/if}}
 </div>
 
 

@@ -5,7 +5,6 @@ const router = express.Router();
 
 const User = require('../models/User.model')
 const Gif = require('../models/Gif.model');
-const { readSync } = require('node:fs');
 
 // ----------MIDDLEWARE---------//
 
