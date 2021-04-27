@@ -28,26 +28,91 @@
 }
 
 .gifs-div {
-    margin-top: 15vh;
+    margin-top: 20vh;
     flex-direction: row;
 }
 
 .accordion {
-    width: 20vw;
+    width: 18vw;
+}
+
+.fav-gifs-div .accordion {
+    width: 28vw;
+    margin: 2vh 2vw;
 }
 
 .logo {
-    width: 25px;
+    width: 28px;
 }
 
+.smbutton {
+    font-size: 1.6rem;
+    width: 20vw;
+    border: 4px dotted white;
+}
+
+.favbutton {
+    font-size: 1.1rem;
+}
+
+.login-signup-title {
+    font-size: 2em;
+    margin-top: 20vh;
+
+}
 .arrows {
     width: 20vw;
     position: fixed;
     left: 40vw;
-    top: 90vh;
+    top: 88vh;
+}
+.profile {
+    margin-top: 10vh;
+}
+.profile h1 {
+    font-size: 3rem;
 }
 
+.profile-lfrg {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
 
+.profile-lfrg div {
+    width: 50vw;
+    font-size: 1.3em
+}
+
+h2.favorites {
+    font-size: 2em
+}
+
+.del-account {
+    width: 20vw;
+    margin: 4vh auto;
+}
+
+.form input {
+    font-size: 1.8em;
+}   
+  
+.form label {
+    font-size: 2em;
+
+}
+
+.centered {
+    margin-top: 20vh;
+    font-size: 2rem;
+}
+
+.centered input {
+    width: 60vw;
+    height: 6vh;
+    margin: 2vh auto;
+}
 
 footer a {
     width: 40vw;

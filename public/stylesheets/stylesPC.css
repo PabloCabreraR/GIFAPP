@@ -3,6 +3,15 @@
     margin-top: 10vh;
 }
 
+.navbar {
+    height: 12vh;
+}
+
+.navbar a {
+    font-size: 1.4em;
+    height: 5vh;
+}
+
 .spacing {
     margin-right: 10px;
     margin-left: 10px;
@@ -10,9 +19,21 @@
 }
 
 .accordion {
-    width: 12vw;
+    width: 8vw;
 }
 
+.gifs-div {
+    margin-top: 26vh;
+}
+
+.smbutton {
+    font-size: 1.8rem;
+    width: 18vw;
+}
+
+.logo {
+    width: 30px;
+}
 
 
 

@@ -1,22 +1,27 @@
 <div class="profile">
 
-    <div>
         <h1>Hi {{user.username}}!</h1>
-        <p>Email: {{user.email}}</p>
+    <div class="profile-lfrg">
+        <div>
+            <p>Email: {{user.email}}</p>
+            <p>Age: {{user.age}}</p>    
+        </div>
+        <div>
+            <form action="/edit-user" method="GET">
+                <button type="submit" class="smbutton">Edit profile</button>
+            </form>
+        </div>
     </div>
 
-    <p>Age: {{user.age}}</p>    
 
-    <form action="/edit-user" method="GET">
-        <button type="submit" class="smbutton">Edit profile</button>
-    </form>
 
 </div>
 
 <h2 class="favorites">Favorites:</h2>
-<div class="favorites">
+<div class="fav-gifs-div">
     {{#if fav}}
         {{#each user.favGifs}}
+        <div>
             <img src={{this.original_url}} alt={{this.title}} class="accordion"/>
             <form action="/remove-gif/{{this._id}}" method="POST" class="panel">
                 <div class='logos'>
@@ -42,11 +47,11 @@
                     </a>
 
                 </div>
-                <button type="submit" class="smbutton">Remove from favorites</button>
-                <hr>
-                
+                <button type="submit" class="favbutton">Remove fav</button>
+
             </form> 
-        {{/each}}
+        </div>
+        {{/each}}            
     {{else}}
         <div class="favorites">
             <p>You don't have any favorites yet!</p>
@@ -56,16 +61,13 @@
             </form>
       
         </div>
-        <br>
-        <hr>
-        <br>
     {{/if}}
 
-    <div class="favorites">
-        <form action="/delete-account" method="GET">
-            <button type="submit" class="smbutton">Delete account</button>
-        </form>   
-    </div>
+</div>
+<div class="del-account">
+    <form action="/delete-account" method="GET">
+        <button type="submit" class="del-account smbutton">Delete account</button>
+    </form>   
 </div>
 
 <script src="/javascript/script.js"></script>

@@ -34,8 +34,8 @@
 
                 </div>  
 
-                <button type="submit" class="smbutton">Add to favorites</button>
-                <hr>
+                <button type="submit" class="favbutton">Add to favs</button>
+
                 
             </form>
 
@@ -47,14 +47,14 @@
         {{#unless firstPage}}
         <form action="/results/{{prevPage}}" method="POST">
             <input type="text" name="search" value={{body}} style="display: none">
-            <button type="submit" class="black"><img src="/images/arrows/Previous-icon.png" alt="Previous page button" class="logo"></button>
+            <button type="submit" class="black"><img src="/images/arrows/Previous-icon.png" alt="Previous page button" class="arrow"></button>
         </form>
         {{/unless}}        
     </div>
     <div>
         <form action="/results/{{nextPage}}" method="POST">
             <input type="text" name="search" value={{body}} style="display: none">
-            <button type="submit" class="black"><img src="/images/arrows/Next-icon.png" alt="Next page button" class="logo"></button>
+            <button type="submit" class="black"><img src="/images/arrows/Next-icon.png" alt="Next page button" class="arrow"></button>
         </form>        
     </div>        
 </div>
