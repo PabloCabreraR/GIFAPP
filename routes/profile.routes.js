@@ -2,6 +2,7 @@
 
 const express = require('express')
 const router = express.Router();
+const bcrypt = require('bcryptjs')
 
 const User = require('../models/User.model')
 const Gif = require('../models/Gif.model');
@@ -87,14 +88,28 @@ router.get('/edit-user', checkForAuth, (req, res)=>{
 })
 
 router.post('/edit-user', checkForAuth, (req, res)=>{
-  User.findByIdAndUpdate(req.user._id, req.body)
-    .then(result => {
-      res.status(202).redirect('/profile')
-    })
-    .catch(error => {
-      res.status(400).render('error', {error: error})
-    })
-    
+  const {username, password, age} = req.body
+  if (password === '' || username === '' || age === ''){
+
+      res.status(406).render('profile/edit-profile', {errMsg: 'All fields are mandatory.', layout: layout})
+  }else{
+    User.findOne({username: username})
+      .then(exists => {
+        if(!exists){
+          const hashedPassword = bcrypt.hashSync(password)
+          User.findByIdAndUpdate(req.user._id, {username: username, password: hashedPassword, age: age})
+            .then(result => {
+              res.status(202).redirect('/profile')
+            })
+        }else{
+          const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
+          res.render('profile/edit-profile', {errMsg: 'There is already someone with that username, choose another one.', layout: layout})
+        }
+      })
+      .catch(error => {
+        res.status(400).render('error', {error: error})
+      })    
+  }
 })
 
 router.get('/delete-account', checkForAuth, (req, res)=>{

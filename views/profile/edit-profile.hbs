@@ -1,6 +1,7 @@
 <h2 class="login-signup-title">Edit profile</h2>
 
 <form action="/edit-user" method="POST" class="form">
+    <br>
     <p>Please fill all the fields.</p>
     <div>
         <label for="username">Username: </label>
@@ -20,6 +21,9 @@
         <label for="profilePic">Profile picture URL: </label>
         <input type="text" name="ProfilePic">    
     </div> --}}
+    {{#if errMsg}}
+        <p>{{errMsg}}</p>
+    {{/if}}
 
     <button type="submit" class="smbutton">Update changes</button>
 

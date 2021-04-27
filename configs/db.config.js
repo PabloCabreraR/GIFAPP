@@ -3,9 +3,8 @@ require('dotenv').config()
 
 const mongoose = require('mongoose')
 
-
 mongoose
-    .connect(`mongodb://localhost/${process.env.DB_NAME}`, {
+    .connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.6zall.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`, {
         useCreateIndex: true,
         useNewUrlParser: true,
         useUnifiedTopology: true,

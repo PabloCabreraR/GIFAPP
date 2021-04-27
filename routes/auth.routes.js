@@ -13,7 +13,7 @@ router.get('/signup', (req, res) => {
 })
 
 router.post('/signup', (req, res) =>{
-    const {username, password, email, age, profilePic} = req.body
+    const {username, password, passwordConfirm, email, age, profilePic} = req.body
 
     if (email === '' || password === '' || username === '' || age === ''){
         const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
@@ -22,6 +22,10 @@ router.post('/signup', (req, res) =>{
     }else if(!validator.validate(email)){
         const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
         res.status(406).render('auth/signup', {errMsg: 'Please use a valid email.', layout: layout})
+        return
+    }else if(password !== passwordConfirm){
+        const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
+        res.status(406).render('auth/signup', {errMsg: 'Password and confirmation are not equal.', layout: layout})
         return
     }else if(password.length < 8){
         const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
@@ -66,7 +70,7 @@ router.post('/login', passport.authenticate ('local', {
 }))
 
 router.get('/logout', (req, res) => {
-    req.status(200).logout()
+    req.logout()
     res.status(200).redirect('/')
 })
 
