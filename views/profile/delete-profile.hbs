@@ -1,21 +1,25 @@
-
-
-<a href="/profile">Go back</a>
-
-
-<p>Hey {{user.username}}. Are you really sure you want to delete your account?</p>
-
-<p>You'll lose all your saved Gifs...</p>
+<div class="centered">
+    <form action="/profile" method="GET">
+        <button type="submit" class="smbutton">Go back</button>
+    </form>
 
 
 
+    <p>Hey {{user.username}}. Are you really sure you want to delete your account?</p>
 
-<form action="/delete-account">
+    <p>You'll lose all your saved Gifs...</p>
 
-    <label for="username">Write down your username ({{user.username}}) and press "DELETE" to confirm this changes.</label>
-    <input type="text" name="username">
 
-    <button type="submit" class="smbutton">DELETE</button>
 
-</form>
+
+    <form action="/delete-account">
+
+        <label for="username">Write down your username ({{user.username}}) and press "DELETE" to confirm this changes.</label>
+        <input type="text" name="username">
+
+        <button type="submit" class="smbutton">DELETE</button>
+
+    </form>
+
+</div>
 

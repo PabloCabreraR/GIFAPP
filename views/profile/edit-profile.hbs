@@ -1,20 +1,25 @@
-<h2>Edit profile</h2>
-<form action="/profile" method="GET">
-    <button class="smbutton">Go back</button>
-</form>
+<h2 class="login-signup-title">Edit profile</h2>
 
-<form action="/edit-user" method="POST">
+<form action="/edit-user" method="POST" class="form">
+    <p>Please fill all the fields.</p>
+    <div>
+        <label for="username">Username: </label>
+        <input type="text" name="username" value={{user.username}}>        
+    </div>
 
-    <label for="username">Username/New username: </label>
-    <input type="text" name="username" value={{user.username}}>
+    <div>
+        <label for="age">Age: </label>
+        <input type="number" name="age" value={{user.age}}>    
+    </div>
 
-    <label for="age">Age/New age: </label>
-    <input type="number" name="age" value={{user.age}}>
-
-    <label for="profilePic">Profile picture URL: </label>
-    <input type="text" name="ProfilePic">
-
+    {{!-- <div>
+        <label for="profilePic">Profile picture URL: </label>
+        <input type="text" name="ProfilePic">    
+    </div> --}}
 
     <button type="submit" class="smbutton">Update changes</button>
 
+<form action="/profile" method="GET">
+    <button class="smbutton">Go back</button>
+</form>
 </form> 

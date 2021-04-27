@@ -43,7 +43,7 @@ router.post('/add-gif', checkForAuth, (req, res)=>{
             .then(created => {
               User.findByIdAndUpdate(req.user._id, {$push: {favGifs: created._id}})
                 .then(saved => {
-                  return
+                  res.status(204).send()
                 })
             })
         }else{
@@ -51,11 +51,11 @@ router.post('/add-gif', checkForAuth, (req, res)=>{
             User.findById(req.user._id)
                 .then(result => {
                   if(result.favGifs.includes(exists._id)){
-                    return 
+                    res.status(204).send()
                   }else{
                     User.findByIdAndUpdate(req.user._id, {$push: {favGifs: exists._id}})
                       .then(saved => {
-                        return
+                        res.status(204).send()
                       })
                   }
                 })
@@ -87,7 +87,6 @@ router.get('/edit-user', checkForAuth, (req, res)=>{
 })
 
 router.post('/edit-user', checkForAuth, (req, res)=>{
-  console.log(req.body)
   User.findByIdAndUpdate(req.user._id, req.body)
     .then(result => {
       res.status(200).redirect('/profile')

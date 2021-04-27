@@ -1,6 +1,6 @@
-<h1>Create an account</h1>
+<h2 class="login-signup-title">Create an account</h2>
 
-<form action="/signup" method="POST">
+<form action="/signup" method="POST" class="form">
     <div>
         <label for="username">Username: </label>
         <input type="text" name="username">
@@ -18,9 +18,10 @@
         <input type="password" name="password">
     </div>
 
-        <button type="submit">Create</button>
+        <button type="submit" class="smbutton">Create</button>
 
 </form>
+
 
 {{#if errMsg}}
 <p>{{this.errMsg}}</p> 
