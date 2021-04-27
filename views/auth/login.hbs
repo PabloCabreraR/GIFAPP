@@ -4,15 +4,15 @@
 <form action="/login" method="POST" class="form">
 
         <label for="email">Email: </label>
-        <input type="email" name="email">
+        <input type="email" name="email" autocomplete="off">
 
         <label for="password">Password: </label>
-        <input type="password" name="password" autocomplete="on">
+        <input type="password" name="password" autocomplete="off">
 
         <button type="submit" class="smbutton">Log in</button>
 
 </form>
 
 {{#if errMsg}}
-<p>{{this.errMsg}}</p> 
+<p class="errMsg">{{this.errMsg}}</p> 
 {{/if}}

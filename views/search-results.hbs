@@ -41,27 +41,28 @@
 
         </div>
     {{/each}}
-    <div class="arrows">
-        <div>
-            {{#unless firstPage}}
-            <form action="/results/{{prevPage}}" method="POST">
-                <input type="text" name="search" value={{body}} style="display: none">
-                <button type="submit" class="black"><img src="/images/arrows/Previous-icon.png" alt="Previous page button" class="logo"></button>
-            </form>
-            {{/unless}}        
-        </div>
-        <div>
-            <form action="/results/{{nextPage}}" method="POST">
-                <input type="text" name="search" value={{body}} style="display: none">
-                <button type="submit" class="black"><img src="/images/arrows/Next-icon.png" alt="Next page button" class="logo"></button>
-            </form>        
-        </div>        
-    </div>
-
-
-
-
 </div>
+<div class="arrows">
+    <div>
+        {{#unless firstPage}}
+        <form action="/results/{{prevPage}}" method="POST">
+            <input type="text" name="search" value={{body}} style="display: none">
+            <button type="submit" class="black"><img src="/images/arrows/Previous-icon.png" alt="Previous page button" class="logo"></button>
+        </form>
+        {{/unless}}        
+    </div>
+    <div>
+        <form action="/results/{{nextPage}}" method="POST">
+            <input type="text" name="search" value={{body}} style="display: none">
+            <button type="submit" class="black"><img src="/images/arrows/Next-icon.png" alt="Next page button" class="logo"></button>
+        </form>        
+    </div>        
+</div>
+
+
+
+
+
 
 
 

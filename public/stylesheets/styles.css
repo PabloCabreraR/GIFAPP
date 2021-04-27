@@ -4,12 +4,16 @@ html {
     color: rgb(138, 138, 138);
     background-color: rgb(30, 30, 30);
     font-family: 'Permanent Marker', cursive;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
 }
 
+
 .body {
-    height: 90vh;
+    height: 85vh;
     margin-top: 8vh;
-    
 }
 
 .navbar {
@@ -28,6 +32,8 @@ html {
 }
 
 .navbar a {
+    width: 25vw;
+    text-align: center;
     text-decoration: none;
     color: rgb(138, 138, 138);
     border: 2px solid grey;
@@ -35,7 +41,7 @@ html {
 }
 
 .searchform {
-    height: 90vh;
+    height: 85vh;
     background-color: rgb(30, 30, 30);
     display: flex;
     flex-direction: column;
@@ -79,16 +85,13 @@ html {
 }
 
 .gifs-div {
+    margin-top: 50px;
     background-color:black;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-}
-
-.center {
-    text-align: center;
-    margin: 10px 0px;
 }
 
 .spacing {
@@ -97,13 +100,14 @@ html {
     margin-top: 5px;
 }
 
-.errorMsg{
-    margin-top: 3rem;
+.errMsg{
+    margin: 0 auto;
+    margin-top: 2rem;
     border: solid grey 0.2rem;
     color: rgb(138, 138, 138);
     background-color: rgb(30, 30, 30);
     padding: 0.5rem;
-    width: 15rem;
+    width: 18rem;
     text-align: center;
     align-self: center
 }
@@ -112,7 +116,6 @@ html {
     cursor: pointer;
     border: none;
     outline: none;
-    transition: 0.4s;
     width: 95vw;
 }
 
@@ -129,8 +132,9 @@ html {
     align-items: center;
     justify-content: space-evenly;
 }
+
 .logo {
-    height: 50px;
+    width: 50px;
 }
 
 .displaynone {
@@ -201,6 +205,7 @@ html {
     height: 40px;
     width: 55vw;
     margin-bottom: 10px;
+    text-align: center;
 }   
 
     
@@ -214,7 +219,27 @@ html {
     text-align: center;
 }
 
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
 
-@media all and (min-width: 480px){
+footer{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
 
+footer a {
+    width: 70vw;
+    text-decoration: none;
+    color: rgb(138,138, 138);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.github-logo{
+    width: 30px;
 }

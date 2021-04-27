@@ -1,13 +1,21 @@
 
 <form action="/results/0" method="POST" id="searchbar">
     <div class="searchform">
-        <input type="text" name="search" placeholder="Write your search here..." id="searchbar-input">
+        <input type="text" name="search" placeholder="Write your search here..." id="searchbar-input" autocomplete="off">
 
         <button type="submit" id="searchbar-button">Search</button>
         {{!-- <img src="/images/mag-glass.png" alt="magnifying glass"/> --}}
         {{#if errMsg}}
-            <p style="color: white; margin-top: 20px; font-size: 1.4em;">{{errMsg}}</p>
+            <p class="errMsg">{{errMsg}}</p>
         {{/if}}
     </div>
 </form>    
+
+<footer>
+    <a href="https://github.com/PabloCabreraR" target="_blank">
+        by Pablo Cabrera
+        <img class="github-logo" src="/images/SNlogos/github.png" alt="github logo"> 
+            2021
+    </a>
+</footer>    
 

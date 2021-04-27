@@ -3,19 +3,19 @@
 <form action="/signup" method="POST" class="form">
 
         <label for="username">Username: </label>
-        <input type="text" name="username">
+        <input type="text" name="username" autocomplete="off">
 
         <label for="email">Email: </label>
-        <input type="email" name="email">
+        <input type="email" name="email" autocomplete="off">
 
         <label for="age">Age: </label>
-        <input type="number" name="age">
+        <input type="number" name="age" autocomplete="off">
 
         <label for="password">Password: </label>
-        <input type="password" name="password">
+        <input type="password" name="password" autocomplete="off">
 
         <label for="passwordConfirm">Confirm password: </label>
-        <input type="password" name="passwordConfirm">
+        <input type="password" name="passwordConfirm" autocomplete="off">
 
 
         <button type="submit" class="smbutton">Create</button>
@@ -24,5 +24,5 @@
 
 
 {{#if errMsg}}
-<p>{{this.errMsg}}</p> 
+<p class="errMsg">{{this.errMsg}}</p> 
 {{/if}}

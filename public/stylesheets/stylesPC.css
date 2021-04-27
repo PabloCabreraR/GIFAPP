@@ -1,0 +1,30 @@
+.body {
+    height: 80vh;
+    margin-top: 10vh;
+}
+
+.spacing {
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.accordion {
+    width: 12vw;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+footer a {
+    width: 20vw;
+
+}
