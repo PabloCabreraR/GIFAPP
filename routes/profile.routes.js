@@ -28,7 +28,7 @@ router.get('/profile', checkForAuth ,(req, res) => {
           res.status(200).render('profile/profile', {user: result, layout: layout, fav: anyFavorites})
         })
         .catch(error => {
-          console.log(error)
+          res.render('error', {error: error})
         })
 })
 
@@ -62,7 +62,7 @@ router.post('/add-gif', checkForAuth, (req, res)=>{
         }
       })
       .catch(error => {
-        console.log(error)
+        res.render('error', {error: error})
       })
 
   }else{
@@ -77,7 +77,7 @@ router.post('/remove-gif/:_id', checkForAuth, (req, res) => {
       res.status(200).redirect('/profile')
     })
     .catch(error => {
-      console.log(error)
+      res.render('error', {error: error})
     })
 })
 
@@ -87,12 +87,13 @@ router.get('/edit-user', checkForAuth, (req, res)=>{
 })
 
 router.post('/edit-user', checkForAuth, (req, res)=>{
+  console.log(req.body)
   User.findByIdAndUpdate(req.user._id, req.body)
     .then(result => {
       res.status(200).redirect('/profile')
     })
     .catch(error => {
-      console.log(error)
+      res.render('error', {error: error})
     })
     
 })
@@ -109,7 +110,7 @@ router.post('/delete-account/', checkForAuth, (req, res)=>{
         res.status(200).redirect('/')
     })
     .catch(error=>{
-        console.log(error)
+      res.render('error', {error: error})
     })
   }else{
     const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'

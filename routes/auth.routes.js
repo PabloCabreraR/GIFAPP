@@ -47,8 +47,8 @@ router.post('/signup', (req, res) =>{
                 })
             }
         })
-        .catch((err) => {
-            res.send(err)
+        .catch((error) => {
+            res.render('error', {error: error})
         })
     }
 })

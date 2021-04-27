@@ -42,7 +42,7 @@ router.post('/results/:page', (req, res)=>{
             }
         })
         .catch(error => {
-            console.log(error)
+            res.render('error', {error: error})
         })
     }else{
         axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.API_KEY}&q=${req.body.search}&limit=20&offset=${page}&rating=g&lang=en`)
@@ -63,7 +63,7 @@ router.post('/results/:page', (req, res)=>{
             }
         })
         .catch(error => {
-            console.log(error)
+            res.render('error', {error: error})
         })
     }
 })

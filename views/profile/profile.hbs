@@ -1,56 +1,71 @@
-<h1>Hi {{user.username}}!</h1>
-<p>Age: {{user.age}}</p>
-<p>Email: {{user.email}}</p>
-{{!-- <img src={{user.profilePic}} alt="{{user.username}} profile pic" /> --}}
-<div>
+<div class="profile">
+    <h1>Hi {{user.username}}!</h1>
+
+    <div>
+        <p>Email: {{user.email}}</p>
+        <p>Age: {{user.age}}</p>    
+    </div>
+
     <form action="/edit-user" method="GET">
-        <button type="submit">Edit profile</button>
+        <button type="submit" class="smbutton">Edit profile</button>
     </form>
 </div>
-<div>
-    <form action="/delete-account" method="GET">
-        <button type="submit">Delete account</button>
-    </form>   
+
+
+
+<h2 class="favorites">Favorites:</h2>
+<div class="favorites">
+    {{#if fav}}
+        {{#each user.favGifs}}
+            <img src={{this.original_url}} alt={{this.title}} class="accordion"/>
+            <form action="/remove-gif/{{this._id}}" method="POST" class="panel">
+                <div class='logos'>
+
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{this.original_url}}&t={{this.title}}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Facebook">
+                        <img src="/images/SNlogos/facebook.png" alt="Facebook logo" class="logo">
+                    </a>
+
+                    <a href="whatsapp://send?url={{this.original_url}}" data-action="share/whatsapp/share" onClick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on whatsapp">
+                        <img src="/images/SNlogos/whatsapp.png" alt="Whatsapp logo" class="logo">
+                    </a>
+
+                    <a href="https://twitter.com/share?url={{this.original_url}}&text={{this.title}}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Twitter">
+                        <img src="/images/SNlogos/twitter.png" alt="Twitter logo" class="logo">
+                    </a>
+
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url={{this.original_url}}&t={{this.title}}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Linkedin">
+                        <img src="/images/SNlogos/linkedin.png" alt="Linkedin logo" class="logo">
+                    </a>
+
+                    <a href={{this.original_url}} onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share">
+                        <img src="/images/SNlogos/share-violet.png" alt="Share logo" class="logo">
+                    </a>
+
+                </div>
+                <button type="submit" class="smbutton">Remove from favorites</button>
+                <hr>
+                
+            </form> 
+        {{/each}}
+    {{else}}
+        <div class="favorites">
+            <p>You don't have any favorites yet!</p>
+            <p>Go ahead and add one!</p>
+            <form action="/" method="GET">
+               <button type="submit" class="smbutton">Go search for gifs!</button>              
+            </form>
+      
+        </div>
+        <br>
+        <hr>
+        <br>
+    {{/if}}
+
+    <div class="favorites">
+        <form action="/delete-account" method="GET">
+            <button type="submit" class="smbutton">Delete account</button>
+        </form>   
+    </div>
 </div>
-
-
-<h2>Favorites:</h2>
-{{#if fav}}
-    {{#each user.favGifs}}
-        <img src={{this.original_url}} alt={{this.title}} class="accordion"/>
-        <form action="/remove-gif/{{this._id}}" method="POST" class="panel">
-            <div class='logos'>
-
-                <a href="https://www.facebook.com/sharer/sharer.php?u={{this.original_url}}&t={{this.title}}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Facebook">
-                    <img src="/images/SNlogos/facebook.png" alt="Facebook logo" class="logo">
-                </a>
-
-                <a href="whatsapp://send?url={{this.original_url}}" data-action="share/whatsapp/share" onClick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on whatsapp">
-                    <img src="/images/SNlogos/whatsapp.png" alt="Whatsapp logo" class="logo">
-                </a>
-
-                <a href="https://twitter.com/share?url={{this.original_url}}&text={{this.title}}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Twitter">
-                    <img src="/images/SNlogos/twitter.png" alt="Twitter logo" class="logo">
-                </a>
-
-                <a href="https://www.linkedin.com/shareArticle?mini=true&url={{this.original_url}}&t={{this.title}}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on Linkedin">
-                    <img src="/images/SNlogos/linkedin.png" alt="Linkedin logo" class="logo">
-                </a>
-
-                <a href={{this.original_url}} onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share">
-                    <img src="/images/SNlogos/share-violet.png" alt="Share logo" class="logo">
-                </a>
-
-            </div>
-            <button type="submit" class="smbutton">Remove from favorites</button>
-            <hr>
-            
-        </form> 
-    {{/each}}
-{{else}}
-    <p>You don't have any favorites yet! Go ahead and add one!</p>
-    <a href="/">Go search for gifs!</a>
-{{/if}}
-
 
 <script src="/javascript/script.js"></script>
