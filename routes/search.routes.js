@@ -7,7 +7,7 @@ let page = 0
 //-------- HOME PAGE--------//
 router.get('/', (req, res) => {
     const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
-    res.render('home', {page: page, layout: layout})
+    res.status(200).render('home', {page: page, layout: layout})
 })
 
 // ------------SEARCH RESULTS PAGE---------- //
@@ -63,7 +63,7 @@ router.post('/results/:page', (req, res)=>{
             }
         })
         .catch(error => {
-            res.render('error', {error: error})
+            res.status(400).render('error', {error: error})
         })
     }
 })

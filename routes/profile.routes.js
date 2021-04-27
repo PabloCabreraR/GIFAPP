@@ -12,7 +12,7 @@ const checkForAuth = (req,res,next) => {
     if(req.isAuthenticated()){
       return next()
     }else{
-      res.redirect('/login')
+      res.status(401).redirect('/login')
     }
 }
 
@@ -28,7 +28,7 @@ router.get('/profile', checkForAuth ,(req, res) => {
           res.status(200).render('profile/profile', {user: result, layout: layout, fav: anyFavorites})
         })
         .catch(error => {
-          res.render('error', {error: error})
+          res.status(400).render('error', {error: error})
         })
 })
 
@@ -62,12 +62,12 @@ router.post('/add-gif', checkForAuth, (req, res)=>{
         }
       })
       .catch(error => {
-        res.render('error', {error: error})
+        res.status(400).render('error', {error: error})
       })
 
   }else{
 
-    res.redirect('/login')
+    res.status(401).redirect('/login')
   }
 })
 
@@ -77,7 +77,7 @@ router.post('/remove-gif/:_id', checkForAuth, (req, res) => {
       res.status(200).redirect('/profile')
     })
     .catch(error => {
-      res.render('error', {error: error})
+      res.status(400).render('error', {error: error})
     })
 })
 
@@ -89,10 +89,10 @@ router.get('/edit-user', checkForAuth, (req, res)=>{
 router.post('/edit-user', checkForAuth, (req, res)=>{
   User.findByIdAndUpdate(req.user._id, req.body)
     .then(result => {
-      res.status(200).redirect('/profile')
+      res.status(202).redirect('/profile')
     })
     .catch(error => {
-      res.render('error', {error: error})
+      res.status(400).render('error', {error: error})
     })
     
 })
@@ -109,11 +109,11 @@ router.post('/delete-account/', checkForAuth, (req, res)=>{
         res.status(200).redirect('/')
     })
     .catch(error=>{
-      res.render('error', {error: error})
+      res.status(400).render('error', {error: error})
     })
   }else{
     const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
-    res.redirect('/delete-profile', {user: req.user, layout: layout})
+    res.status(401).redirect('/delete-profile', {user: req.user, layout: layout})
   }
 })
 

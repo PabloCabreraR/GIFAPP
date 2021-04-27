@@ -9,7 +9,7 @@ const User = require('../models/User.model')
 
 router.get('/signup', (req, res) => {
     const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
-    res.render('auth/signup', {layout: layout})
+    res.status(200).render('auth/signup', {layout: layout})
 })
 
 router.post('/signup', (req, res) =>{
@@ -17,22 +17,22 @@ router.post('/signup', (req, res) =>{
 
     if (email === '' || password === '' || username === '' || age === ''){
         const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
-        res.render('auth/signup', {errMsg: 'All fields are mandatory.', layout: layout})
+        res.status(406).render('auth/signup', {errMsg: 'All fields are mandatory.', layout: layout})
         return
     }else if(!validator.validate(email)){
         const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
-        res.render('auth/signup', {errMsg: 'Please use a valid email.', layout: layout})
+        res.status(406).render('auth/signup', {errMsg: 'Please use a valid email.', layout: layout})
         return
     }else if(password.length < 8){
         const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
-        res.render('auth/signup', {errMsg: 'Password needs to be at least 8 chars long.', layout: layout})
+        res.status(406).render('auth/signup', {errMsg: 'Password needs to be at least 8 chars long.', layout: layout})
         return
     }else{
         User.findOne({email})
         .then((result) => {
             if (result) {
                 const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
-                res.render('auth/signup', {errMsg: 'There is already an account with this email', layout: layout})
+                res.status(406).render('auth/signup', {errMsg: 'There is already an account with this email', layout: layout})
             } else {
                 const hashedPassword = bcrypt.hashSync(password, 10)
                 User.create({
@@ -43,19 +43,19 @@ router.post('/signup', (req, res) =>{
                     profilePic: profilePic,
                 })
                 .then((result) => {
-                    res.redirect('/login')
+                    res.status(201).redirect('/login')
                 })
             }
         })
         .catch((error) => {
-            res.render('error', {error: error})
+            res.status(400).render('error', {error: error})
         })
     }
 })
 
 router.get('/login', (req, res) => {
     const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
-    res.render('auth/login', {errMsg: req.flash('error'), layout: layout})
+    res.status(200).render('auth/login', {errMsg: req.flash('error'), layout: layout})
 })
 
 router.post('/login', passport.authenticate ('local', {
@@ -66,8 +66,8 @@ router.post('/login', passport.authenticate ('local', {
 }))
 
 router.get('/logout', (req, res) => {
-    req.logout()
-    res.redirect('/')
+    req.status(200).logout()
+    res.status(200).redirect('/')
 })
 
 module.exports = router

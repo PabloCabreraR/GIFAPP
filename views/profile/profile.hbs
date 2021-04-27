@@ -1,17 +1,17 @@
 <div class="profile">
-    <h1>Hi {{user.username}}!</h1>
 
     <div>
+        <h1>Hi {{user.username}}!</h1>
         <p>Email: {{user.email}}</p>
-        <p>Age: {{user.age}}</p>    
     </div>
+
+    <p>Age: {{user.age}}</p>    
 
     <form action="/edit-user" method="GET">
         <button type="submit" class="smbutton">Edit profile</button>
     </form>
+
 </div>
-
-
 
 <h2 class="favorites">Favorites:</h2>
 <div class="favorites">
