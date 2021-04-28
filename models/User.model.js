@@ -9,7 +9,8 @@ const userSchema = new Schema({
     age: {type: Number, required: true},
     email: {type: String, required: true, unique: true},
     password: {type: String, required: true, minlength: 8},
-    favGifs: [{type: Schema.Types.ObjectId, ref: 'Gif'}]
+    favGifs: [{type: Schema.Types.ObjectId, ref: 'Gif'}],
+    validated: {type: Boolean, default: false}
 }, {
     versionKey: false
 })

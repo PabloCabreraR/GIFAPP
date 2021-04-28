@@ -10,24 +10,12 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-const nodemailer = require('nodemailer')
 
 
 //-------MONGOOSE---------//
 
 const User = require('./models/User.model')
 require('./configs/db.config.js')
-
-
-// --------NODEMAILER CONFIG ---------//
-
-let transporter =  nodemailer.createTransport({
-  service: 'Gmail',
-  auth: {
-    user: process.env.EMAIL,
-    pass: process.env.EMAIL_PASSWORD
-  }
-})
 
 
 // --------MIDDLEWARE--------//
