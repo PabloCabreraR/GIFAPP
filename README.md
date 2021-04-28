@@ -7,7 +7,8 @@ GIFAPP is a complete functional web application where you can search for any GIF
 ## Go try it yourself!
 Heroku URL : https://gifapp-v1.herokuapp.com/
 
-![WebApp Preview](https://ibb.co/N7Z4GWH)
+
+![WebApp-Preview](./public/images/gifapp-preview.PNG)
 
 
 ## Tools used 🛠️
