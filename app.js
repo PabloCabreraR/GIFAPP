@@ -87,8 +87,6 @@ passport.use(new LocalStrategy({
 app.use(passport.initialize())
 app.use(passport.session())
 
-
-
 //-------HBS---------//
 
 app.set('views', __dirname + '/views');

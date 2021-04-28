@@ -20,10 +20,6 @@
 
 </head>
 <body>
-    <script>
-        ScreenOrientation.lock('portrait-primary')
-
-    </script>
 
     <div class="navbar">
         <a href="/signup">Sign up</a>
@@ -31,9 +27,16 @@
         <a href="/login">Log in</a>
     </div>
 
+    <div class="turn-device displaynone">
+        <p>Please turn your devide.</p>
+        <img src="/images/turn-device-black.png" alt="Turn device">
+    </div>
+
     <div class="body">
         {{{body}}}           
     </div>
+
+    <script src="/javascript/orientation.js"></script>
 
 </body>
 </html>
