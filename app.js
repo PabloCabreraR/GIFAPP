@@ -103,6 +103,6 @@ app.use('/', require('./routes/profile.routes'))
 app.use('/', require('./routes/search.routes'))
 
 // ---------SERVER LISTEN -------//
-app.listen(3000, ()=>{
-    console.log("Server listening at PORT 3000")   
+app.listen(process.env.PORT || 3000, ()=>{
+    console.log("Server listening")   
 })
