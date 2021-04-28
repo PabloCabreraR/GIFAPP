@@ -5,6 +5,7 @@
 
 .navbar {
     height: 12vh;
+    width: 100vw;
 }
 
 .navbar a {
@@ -13,17 +14,26 @@
 }
 
 .spacing {
-    margin-right: 10px;
-    margin-left: 10px;
-    margin-top: 10px;
+    margin-right: 8px;
+    margin-left: 8px;
+    margin-top: 8px;
 }
 
 .accordion {
-    width: 8vw;
+    width: 14vw;
 }
 
 .gifs-div {
-    margin-top: 26vh;
+    margin-top: 15vh;
+}
+
+.fav-gifs-div .accordion {
+    width: 22vw;
+    margin: 2vh 2vw;
+}
+
+.fav-gifs-div {
+    width: 95vw;
 }
 
 .smbutton {
@@ -35,17 +45,18 @@
     width: 30px;
 }
 
+.noDisplay-Pc {
+    display: none;
+}
 
+.marginTop {
+    margin-top: 1vh;
+}
 
-
-
-
-
-
-
-
+.marginTop input {
+    font-size: 1.5em;
+}
 
 footer a {
     width: 20vw;
-
 }

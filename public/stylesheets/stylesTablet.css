@@ -33,7 +33,8 @@
 }
 
 .accordion {
-    width: 18vw;
+    width: 22vw;
+    margin-top: 1vh;
 }
 
 .fav-gifs-div .accordion {

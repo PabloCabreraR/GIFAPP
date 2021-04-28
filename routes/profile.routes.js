@@ -89,6 +89,7 @@ router.get('/edit-user', checkForAuth, (req, res)=>{
 
 router.post('/edit-user', checkForAuth, (req, res)=>{
   const {username, password, age} = req.body
+  const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
   if (password === '' || username === '' || age === ''){
 
       res.status(406).render('profile/edit-profile', {errMsg: 'All fields are mandatory.', layout: layout})
@@ -102,7 +103,6 @@ router.post('/edit-user', checkForAuth, (req, res)=>{
               res.status(202).redirect('/profile')
             })
         }else{
-          const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
           res.render('profile/edit-profile', {errMsg: 'There is already someone with that username, choose another one.', layout: layout})
         }
       })

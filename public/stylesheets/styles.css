@@ -10,6 +10,10 @@ html {
     user-select: none; 
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 
 .body {
     height: 85vh;
@@ -86,7 +90,7 @@ html {
 
 .gifs-div {
     margin-top: 50px;
-    background-color:black;
+    background-color: rgb(30, 30, 30);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -152,13 +156,9 @@ html {
 }
 
 .black {
-    background-color: black;
+    background-color: rgb(30, 30, 30);
     border: none;
     border-radius: 100%;
-}
-
-.black:hover{
-    background-color: rgb(109, 109, 109);
 }
 
 .arrows {
@@ -209,7 +209,7 @@ html {
 }
 
 .form {
-    height: 60vh;
+    height: 55                                                            vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;

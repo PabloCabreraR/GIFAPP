@@ -1,7 +1,6 @@
 <h2 class="login-signup-title">Edit profile</h2>
 
 <form action="/edit-user" method="POST" class="form">
-    <br>
     <p>Please fill all the fields.</p>
     <div>
         <label for="username">Username: </label>
@@ -9,25 +8,22 @@
     </div>
 
     <div>
+        <label for="password">Password: </label>
+        <input type="password" name="password" autocomplete="off">    
+    </div>
+
+    <div>
         <label for="age">Age: </label>
         <input type="number" name="age" value="{{user.age}}" autocomplete="off">    
     </div>
 
-    <div>
-        <label for="password">Password: </label>
-        <input type="password" name="password" autocomplete="off">    
-    </div>
-    {{!-- <div>
-        <label for="profilePic">Profile picture URL: </label>
-        <input type="text" name="ProfilePic">    
-    </div> --}}
     {{#if errMsg}}
         <p>{{errMsg}}</p>
     {{/if}}
 
     <button type="submit" class="smbutton">Update changes</button>
+</form> 
 
-<form action="/profile" method="GET">
+<form action="/profile" method="GET" class="form">
     <button class="smbutton">Go back</button>
 </form>
-</form> 

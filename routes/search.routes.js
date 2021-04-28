@@ -23,7 +23,7 @@ router.post('/results/:page', (req, res)=>{
         }else{
             rating = 'pg'
         }
-        axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.API_KEY}&q=${req.body.search}&limit=20&offset=${page}&rating=${rating}&lang=en`)
+        axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.API_KEY}&q=${req.body.search}&limit=12&offset=${page}&rating=${rating}&lang=en`)
         .then(result => {
             const layout = '/layouts/auth'
             if(result.data.data.length === 0){
@@ -35,8 +35,8 @@ router.post('/results/:page', (req, res)=>{
                     body: req.body.search, 
                     firstPage: page == 0,
                     page: page, 
-                    nextPage: Number(page)+20, 
-                    prevPage: Number(page)-20,
+                    nextPage: Number(page)+12, 
+                    prevPage: Number(page)-12,
 
                 })
             }
@@ -45,7 +45,7 @@ router.post('/results/:page', (req, res)=>{
             res.render('error', {error: error})
         })
     }else{
-        axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.API_KEY}&q=${req.body.search}&limit=20&offset=${page}&rating=g&lang=en`)
+        axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.API_KEY}&q=${req.body.search}&limit=12&offset=${page}&rating=g&lang=en`)
         .then(result => {
             const layout = '/layouts/noAuth'
             if(result.data.data.length === 0){
@@ -57,8 +57,8 @@ router.post('/results/:page', (req, res)=>{
                     body: req.body.search, 
                     firstPage: page == 0,
                     page: page, 
-                    nextPage: Number(page)+20, 
-                    prevPage: Number(page)-20,
+                    nextPage: Number(page)+12, 
+                    prevPage: Number(page)-12,
                 })
             }
         })
