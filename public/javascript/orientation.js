@@ -6,3 +6,8 @@ window.addEventListener("orientationchange", () => {
         turnDiv.classList.remove('displaynone') 
     }
   }, false);
+
+
+
+
+document.body.requestFullscreen()
