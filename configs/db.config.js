@@ -1,3 +1,5 @@
+// -------- MONGO ATLAS CONFIGURATION -----------//
+
 require('dotenv').config()
 
 

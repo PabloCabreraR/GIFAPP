@@ -1,3 +1,6 @@
+// ----------- USER MODEL FOR DB COLLECTION --------//
+
+
 const mongoose = require('mongoose')
 
 

@@ -1,3 +1,5 @@
+//--------------PACKAGES-----------//
+
 const express = require('express')
 const router = express.Router()
 const bcrypt = require('bcryptjs')
@@ -6,12 +8,15 @@ const validator = require('email-validator')
 
 const User = require('../models/User.model')
 
+//----------ROUTES----------//
 
+// ------- Render the sign up form route ---------//
 router.get('/signup', (req, res) => {
     const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
     res.status(200).render('auth/signup', {layout: layout})
 })
 
+// --------- Create the user in the DB route ------//
 router.post('/signup', (req, res) =>{
     const {username, password, passwordConfirm, email, age, profilePic} = req.body
 
@@ -57,11 +62,13 @@ router.post('/signup', (req, res) =>{
     }
 })
 
+// ---------- Render the login form route ----------//
 router.get('/login', (req, res) => {
     const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
     res.status(200).render('auth/login', {errMsg: req.flash('error'), layout: layout})
 })
 
+// -------- Chech the user with passport for login route ----------// 
 router.post('/login', passport.authenticate ('local', {
     successRedirect: '/profile',
     failureRedirect: '/login',
@@ -69,9 +76,11 @@ router.post('/login', passport.authenticate ('local', {
     passReqToCallback: true
 }))
 
+// ---------- Logout route -----------//
 router.get('/logout', (req, res) => {
     req.logout()
     res.status(200).redirect('/')
 })
 
+// -----Export routes -----//
 module.exports = router

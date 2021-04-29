@@ -1,16 +1,20 @@
+//--------------PACKAGES-----------//
+
 const express = require('express')
 const router  = express.Router()
 const axios = require('axios')
 let rating;
 let page = 0
 
-//-------- HOME PAGE--------//
+
+//----------ROUTES----------//
+//-------- Home page route --------//
 router.get('/', (req, res) => {
     const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
     res.status(200).render('home', {page: page, layout: layout})
 })
 
-// ------------SEARCH RESULTS PAGE---------- //
+// ------------Search results route ---------- //
 router.post('/results/:page', (req, res)=>{
     page = req.params.page
     if (req.body.search === '') res.redirect('/')
@@ -68,5 +72,5 @@ router.post('/results/:page', (req, res)=>{
     }
 })
 
-
+// ---- Exports routes------//
 module.exports = router

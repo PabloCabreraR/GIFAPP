@@ -20,6 +20,7 @@ const checkForAuth = (req,res,next) => {
 
 //----------ROUTES----------//
 
+//----Profile route ------//
 router.get('/profile', checkForAuth ,(req, res) => {
     const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
     const anyFavorites = req.user.favGifs.length > 0 ? true : false
@@ -33,6 +34,7 @@ router.get('/profile', checkForAuth ,(req, res) => {
         })
 })
 
+// ------  Add a gif to favorites route ------//
 router.post('/add-gif', checkForAuth, (req, res)=>{
   if (req.user){
 
@@ -72,6 +74,7 @@ router.post('/add-gif', checkForAuth, (req, res)=>{
   }
 })
 
+// ------- Remove a gif from favorites route ------ //
 router.post('/remove-gif/:_id', checkForAuth, (req, res) => {
   User.findByIdAndUpdate(req.user._id, {$pull: {favGifs: req.params._id}})
     .then(() => {
@@ -82,11 +85,13 @@ router.post('/remove-gif/:_id', checkForAuth, (req, res) => {
     })
 })
 
+// -------- Render the edit profile form route ----//
 router.get('/edit-user', checkForAuth, (req, res)=>{
   const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
   res.status(200).render('profile/edit-profile', {layout: layout})
 })
 
+// -------- Edit the user in the DB route -------//
 router.post('/edit-user', checkForAuth, (req, res)=>{
   const {username, password, age} = req.body
   const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
@@ -112,11 +117,13 @@ router.post('/edit-user', checkForAuth, (req, res)=>{
   }
 })
 
+// --------- Delete user form route ---------------//
 router.get('/delete-account', checkForAuth, (req, res)=>{
   const layout = req.user ? '/layouts/auth' : '/layouts/noAuth'
   res.render('profile/delete-profile', {user: req.user, layout: layout})
 })
 
+// -------- Delete user from the DB route ----------// 
 router.post('/delete-account/', checkForAuth, (req, res)=>{
   if (user.req.username === req.body.username){
     User.findByIdAndDelete(req.user._id)
@@ -132,4 +139,5 @@ router.post('/delete-account/', checkForAuth, (req, res)=>{
   }
 })
 
+// ------- Export routes ---------//
 module.exports = router
