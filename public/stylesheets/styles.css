@@ -183,6 +183,14 @@ html {
     align-items: center;
 }
 
+.nofavorites {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .fav-gifs-div {
     margin-top: 5vh;
     display: flex;
@@ -232,6 +240,17 @@ html {
     font-family: 'Permanent Marker', cursive;
     font-size: 1.35em;
     margin-top: 10px;
+}
+
+.deleteinput {
+    font-family: 'Permanent Marker', cursive;
+    background-color: rgb(90, 90, 90);
+    color: black;
+    border: 2px solid grey;
+    height: 40px;
+    width: 55vw;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 .centered {

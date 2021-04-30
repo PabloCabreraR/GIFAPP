@@ -125,9 +125,10 @@ router.get('/delete-account', checkForAuth, (req, res)=>{
 
 // -------- Delete user from the DB route ----------// 
 router.post('/delete-account/', checkForAuth, (req, res)=>{
-  if (user.req.username === req.body.username){
+  if (req.user.username === req.body.username){
     User.findByIdAndDelete(req.user._id)
     .then(() => {
+        req.logout()
         res.status(200).redirect('/')
     })
     .catch(error=>{

@@ -12,12 +12,12 @@
 
 
 
-    <form action="/delete-account">
+    <form action="/delete-account" method="POST">
         <div>
             <label for="username">Write down your username ({{user.username}}) and press "DELETE" to confirm this changes.</label>
         </div>
         <div>
-            <input type="text" name="username" autocomplete="off"> 
+            <input type="text" name="username" autocomplete="off" class="deleteinput"> 
         </div>
 
         <div>
