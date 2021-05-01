@@ -12,3 +12,10 @@ accordion.forEach(image=>{
         })
 })
 
+const favbutton = document.querySelectorAll(".favbutton")
+
+favbutton.forEach(button => {
+    button.addEventListener('click', ()=>{
+        button.setAttribute("style", "background-color: black;")
+    })
+})
